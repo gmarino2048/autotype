@@ -2,6 +2,7 @@
 #define AUTOTYPE_AUTOTYPE_H
 
 #include <string>
+#include <typeinfo>
 
 using namespace std;
 
@@ -11,6 +12,29 @@ namespace celstd {
     struct autotype_type_info {
         string type_name;
         size_t type_hash;
+
+        autotype_type_info();
+        autotype_type_info(const type_info& info);
+
+        bool equals(autotype_type_info& other);
+        string to_string();
+
+        operator string();
+        bool operator ==(autotype_type_info& rhs);
+        bool operator !=(autotype_type_info& rhs);
+    };
+
+    // Make an exception to be thrown for bad type
+    class bad_autotype_cast : exception {
+    private:
+        string message;
+        bad_autotype_cast();
+
+    public:
+        bad_autotype_cast(autotype_type_info type);
+
+        const char* what();
+        string get_message();
     };
 
     class autotype {
@@ -25,6 +49,7 @@ namespace celstd {
 
     public:
         // Constructors
+        autotype();
         autotype(autotype& other);
         template<class T> autotype(T object);
 
@@ -34,8 +59,12 @@ namespace celstd {
         // Implicit Converter
         template<class T> operator T();
 
+        // Equality/String operators
+        string to_string();
+        operator string();
+
         // Member access functions
-        info_t get_type_info ();
+        const info_t& get_type_info ();
         void* get_core_data();
     };
 }
