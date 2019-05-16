@@ -3,11 +3,20 @@ project(autotype)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(GTEST_DIR test/googletest/googletest)
+
+add_subdirectory(${GTEST_DIR})
+
+if (APPLE)
+    add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
+    add_definitions(-D__GLIBCXX__)
+endif (APPLE)
+
+include_directories(${GTEST_DIR} ${GTEST_DIR}/include)
+
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/arc)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-set(SOURCE_FILES autotype.h autotype.cpp)
-
-add_library(autotype SHARED ${SOURCE_FILES} test/autotype_unit_test.cpp)
-
-add_library(autotype_static STATIC ${SOURCE_FILES})
+include_directories(src)
+add_subdirectory(src)
+add_subdirectory(test)
