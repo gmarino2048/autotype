@@ -16,12 +16,12 @@ namespace celstd {
         autotype_type_info();
         autotype_type_info(const type_info& info);
 
-        bool equals(autotype_type_info& other);
+        bool equals(const autotype_type_info& other) const;
         string to_string();
 
         operator string();
-        bool operator ==(autotype_type_info& rhs);
-        bool operator !=(autotype_type_info& rhs);
+        bool operator ==(const autotype_type_info& rhs) const;
+        bool operator !=(const autotype_type_info& rhs) const;
     };
 
     // Make an exception to be thrown for bad type

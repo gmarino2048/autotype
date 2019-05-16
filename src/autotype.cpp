@@ -19,7 +19,7 @@ autotype_type_info::autotype_type_info(const type_info& info) {
     this->type_hash = info.hash_code();
 }
 
-bool autotype_type_info::equals(celstd::autotype_type_info &other) {
+bool autotype_type_info::equals(const celstd::autotype_type_info &other) const {
     return other.type_hash == this->type_hash;
 }
 
@@ -33,11 +33,11 @@ autotype_type_info::operator string(){
     return to_string();
 }
 
-bool autotype_type_info::operator==(celstd::autotype_type_info& rhs) {
+bool autotype_type_info::operator==(const celstd::autotype_type_info &rhs) const {
     return equals(rhs);
 }
 
-bool autotype_type_info::operator!=(celstd::autotype_type_info &rhs) {
+bool autotype_type_info::operator!=(const celstd::autotype_type_info &rhs) const {
     return !(equals(rhs));
 }
 
