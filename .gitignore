@@ -1,6 +1,12 @@
 # Mac specific files
 .DS_Store
 
+# Build and binary files
+build/
+bin/
+lib/
+arc/
+
 # Prerequisites
 *.d
 
