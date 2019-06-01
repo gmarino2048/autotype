@@ -4,38 +4,13 @@
 #include <string>
 #include <typeinfo>
 
+#include <autotype_type_info.hpp>
+#include <bad_autotype_cast.hpp>
+
 using namespace std;
+using namespace celstd::autotype_help;
 
 namespace celstd {
-
-    // Make a not-weird container for the type info
-    struct autotype_type_info {
-        string type_name;
-        size_t type_hash;
-
-        autotype_type_info();
-        autotype_type_info(const type_info& info);
-
-        bool equals(const autotype_type_info& other) const;
-        string to_string();
-
-        operator string();
-        bool operator ==(const autotype_type_info& rhs) const;
-        bool operator !=(const autotype_type_info& rhs) const;
-    };
-
-    // Make an exception to be thrown for bad type
-    class bad_autotype_cast : exception {
-    private:
-        string message;
-        bad_autotype_cast();
-
-    public:
-        bad_autotype_cast(autotype_type_info type);
-
-        const char* what();
-        string get_message();
-    };
 
     class autotype {
     public:
@@ -68,5 +43,7 @@ namespace celstd {
         void* get_core_data();
     };
 }
+
+#include "impl/autotype_impl.hpp"
 
 #endif //AUTOTYPE_AUTOTYPE_H

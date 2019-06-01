@@ -1,6 +1,6 @@
 
 #include <gtest/gtest.h>
-#include <autotype.h>
+#include <autotype.hpp>
 
 using namespace std;
 using namespace celstd;

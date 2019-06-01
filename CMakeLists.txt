@@ -11,6 +11,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 add_subdirectory(googletest)
 include_directories(googletest/googletest/include)
 
-include_directories(src)
+include_directories(include)
 add_subdirectory(src)
 add_subdirectory(test)
