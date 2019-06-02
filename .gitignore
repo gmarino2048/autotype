@@ -7,6 +7,10 @@ bin/
 lib/
 arc/
 
+# Editor-specific files and folders
+.idea/
+.vscode/
+
 # Prerequisites
 *.d
 
