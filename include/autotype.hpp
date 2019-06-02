@@ -36,7 +36,6 @@ namespace celstd {
 
         // Equality/String operators
         string to_string();
-        operator string();
 
         // Member access functions
         const info_t& get_type_info ();

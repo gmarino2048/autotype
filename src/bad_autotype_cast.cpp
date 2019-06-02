@@ -1,11 +1,17 @@
 
+#include <string>
 #include <bad_autotype_cast.hpp>
 
+using namespace std;
 using namespace celstd::autotype_help;
 
 // Define bad_autotype_cast section
 bad_autotype_cast::bad_autotype_cast() {
     message = "";
+}
+
+bad_autotype_cast::bad_autotype_cast(string message) {
+    this->message = message;
 }
 
 bad_autotype_cast::bad_autotype_cast(autotype_type_info type) {

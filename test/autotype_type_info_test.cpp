@@ -6,46 +6,58 @@ using namespace std;
 using namespace celstd;
 
 namespace {
+    typedef autotype_type_info ati;
+
     TEST(TypeInfo, EmptyConstructorTest){
-        autotype_type_info info;
+        ati info;
 
         EXPECT_EQ(info.type_hash, typeid(nullptr_t).hash_code());
         EXPECT_EQ(info.type_name, typeid(nullptr_t).name());
     }
 
     TEST(TypeInfo, SimpleConstructorTest){
-        autotype_type_info info(typeid(int));
+        ati info(typeid(int));
 
         EXPECT_EQ(info.type_hash, typeid(int).hash_code());
         EXPECT_EQ(info.type_name, typeid(int).name());
     }
 
     TEST(TypeInfo, CopyConstructorTest){
-        autotype_type_info info(typeid(string));
-        autotype_type_info other(info);
+        ati info(typeid(string));
+        ati other(info);
 
         EXPECT_NE(&info, &other);
     }
 
     TEST(TypeInfo, TestToString){
-        autotype_type_info infostring(typeid(string));
-        autotype_type_info infoint(typeid(int));
+        ati infostring(typeid(string));
+        ati infoint(typeid(int));
 
-        EXPECT_EQ(infostring.to_string(), "autotype_type_info<NSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE>\n");
-        EXPECT_EQ(infoint.to_string(), "autotype_type_info<i>\n");
+        string str_name = typeid(string).name();
+        string int_name = typeid(int).name();
+
+        stringstream ss;
+        ss << "autotype_type_info<" << str_name << ">" << endl;
+
+        EXPECT_EQ(infostring.to_string(), ss.str());
+
+        ss.str("");
+        ss << "autotype_type_info<" << int_name << ">" << endl;
+
+        EXPECT_EQ(infoint.to_string(), ss.str());
     }
 
     TEST(TypeInfo, TestEquals){
-        autotype_type_info info(typeid(string));
-        autotype_type_info copy(info);
-        autotype_type_info same_type(typeid(string));
+        ati info(typeid(string));
+        ati copy(info);
+        ati same_type(typeid(string));
 
         EXPECT_EQ(info, copy);
         EXPECT_EQ(info, same_type);
     }
 
     TEST(TypeInfo, StringOperatorTest){
-        autotype_type_info info(typeid(int));
+        ati info(typeid(int));
 
         // Explicit cast
         EXPECT_EQ((string)info, "autotype_type_info<i>\n");

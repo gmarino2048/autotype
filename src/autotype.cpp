@@ -29,10 +29,6 @@ string autotype::to_string(){
     return ss.str();
 }
 
-autotype::operator string(){
-    return to_string();
-}
-
 const autotype::info_t& autotype::get_type_info() {
     return autotype_type;
 }

@@ -2,11 +2,15 @@
 
 #include <gtest/gtest.h>
 #include <autotype.hpp>
+#include <bad_autotype_cast.hpp>
 
 using namespace std;
 using namespace celstd;
 
 namespace {
+    typedef autotype at;
+    typedef bad_autotype_cast bac;
+
     TEST(Autotype, TestConversionToAutotype){
         string str = "Hello World";
         EXPECT_NO_THROW(autotype at = str);
@@ -29,16 +33,36 @@ namespace {
         EXPECT_NO_THROW(autotype at = tst);
     }
 
-    TEST(Autotype, GetCoreDataTest){
-        string str = "Hello World";
-        autotype at = str;
+    TEST(Autotype, TestGoodConversion){
+        int x = 45;
+        at auto_int = x;
 
-        void* data = at.get_core_data();
-        EXPECT_EQ(*((string*)data), str);
+        ASSERT_NO_THROW(int y = auto_int;);
+        int y = auto_int;
+        EXPECT_EQ(x, y);
 
-        int in = 45;
-        at = in;
-        data = at.get_core_data();
-        EXPECT_EQ(*((int*)data), in);
+        string a = "Hello World";
+        at auto_str = a;
+        ASSERT_NO_THROW(string b = auto_str;);
+        string c = auto_str;
+
+        EXPECT_EQ(a, c);
+    }
+
+    TEST(Autotype, TestBadConversion){
+        at auto_int = 45;
+        EXPECT_THROW(float x = auto_int;, bad_autotype_cast);
+        EXPECT_THROW(double x = auto_int;, bad_autotype_cast);
+        EXPECT_THROW(string x = auto_int;, bad_autotype_cast);
+
+        at auto_str = string("Hello World");
+        EXPECT_THROW(int x = auto_str;, bad_autotype_cast);
+        EXPECT_THROW(float y = auto_str;, bad_autotype_cast);
+
+        struct test_1 { int x; };
+        struct test_2 { int x; };
+
+        at auto_test_1 = test_1{45};
+        EXPECT_THROW(test_2 z = auto_test_1, bad_autotype_cast);
     }
 }

@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(
         autotype_test
         autotype_type_info_test.cpp
+        bad_autotype_cast_test.cpp
         autotype_test.cpp
 )
 

@@ -20,6 +20,7 @@ namespace celstd::autotype_help{
         bad_autotype_cast();
 
     public:
+        bad_autotype_cast(string message);
         bad_autotype_cast(autotype_type_info type);
 
         const char* what();
