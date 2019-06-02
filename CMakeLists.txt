@@ -3,12 +3,12 @@ project(autotype)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(GTEST_DIR googletest/googletest)
+set(GTEST_DIR modules/googletest/googletest)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/arc)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-add_subdirectory(googletest)
+add_subdirectory(modules/googletest)
 include_directories(googletest/googletest/include)
 
 include_directories(include)
