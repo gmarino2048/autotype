@@ -12,6 +12,7 @@ add_executable(
 
 set_target_properties(autotype_test
         PROPERTIES
+        POSITION_INDEPENDENT_CODE ON
         ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test/arc
         LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test/lib
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test/bin
