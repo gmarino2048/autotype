@@ -19,7 +19,7 @@ set_target_properties(autotype_test
 
 target_link_libraries(
         autotype_test
-        autotype
+        autotype_static
         gtest
         gtest_main
 )
