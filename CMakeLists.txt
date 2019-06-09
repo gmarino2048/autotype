@@ -3,6 +3,8 @@ project(autotype)
 
 set(CMAKE_CXX_STANDARD 17)
 
+enable_testing()
+
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/arc)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
@@ -19,11 +21,6 @@ link_directories(
 add_subdirectory(src)
 add_subdirectory(test)
 
-set_target_properties(autotype autotype_static PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib
-    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/arc
-)
-
 install(
     DIRECTORY include/
     DESTINATION /usr/local/include/autotype
@@ -35,5 +32,4 @@ install(TARGETS
     autotype_static
     LIBRARY DESTINATION /usr/local/lib/autotype
     ARCHIVE DESTINATION /usr/local/lib/autotype
-    PUBLIC_HEADER DESTINATION /usr/local/include/autotype
 )
