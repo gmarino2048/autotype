@@ -12,9 +12,10 @@ add_executable(
 
 set_target_properties(autotype_test
         PROPERTIES
-        ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test/arc
-        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test/lib
-        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test/bin)
+        ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test/arc
+        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test/lib
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test/bin
+)
 
 target_link_libraries(
         autotype_test
