@@ -26,10 +26,3 @@ install(
     DESTINATION /usr/local/include/autotype
     PATTERN "impl" EXCLUDE
 )
-
-install(TARGETS
-    autotype
-    autotype_static
-    LIBRARY DESTINATION /usr/local/lib/autotype
-    ARCHIVE DESTINATION /usr/local/lib/autotype
-)
