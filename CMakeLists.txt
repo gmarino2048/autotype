@@ -10,12 +10,12 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 include_directories(
     include
-    /usr/local/include
+    ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
 link_directories(
     /usr/lib
-    /usr/local/lib
+    ${CMAKE_INSTALL_LIBDIR}
 )
 
 add_subdirectory(src)
@@ -23,6 +23,6 @@ add_subdirectory(test)
 
 install(
     DIRECTORY include/
-    DESTINATION /usr/local/include/autotype
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/autotype
     PATTERN "impl" EXCLUDE
 )
