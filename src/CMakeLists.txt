@@ -24,6 +24,6 @@ set_target_properties(autotype autotype_static PROPERTIES
 install(TARGETS
     autotype
     autotype_static
-    LIBRARY DESTINATION /usr/local/lib/autotype
-    ARCHIVE DESTINATION /usr/local/lib/autotype
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/autotype
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/autotype
 )
