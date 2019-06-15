@@ -17,7 +17,7 @@ include_directories(
 
 link_directories(
     /usr/lib
-    ${CMAKE_INSTALL_LIBDIR}
+    ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR} 
 )
 
 add_subdirectory(src)
