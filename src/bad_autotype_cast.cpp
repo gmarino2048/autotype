@@ -1,6 +1,6 @@
 
 #include <string>
-#include <bad_autotype_cast.hpp>
+#include <autotype/bad_autotype_cast.hpp>
 
 using namespace std;
 using namespace celstd::autotype_help;

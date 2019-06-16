@@ -3,8 +3,8 @@
 #include <typeinfo>
 
 #include <gtest/gtest.h>
-#include <bad_autotype_cast.hpp>
-#include <autotype_type_info.hpp>
+#include <autotype/bad_autotype_cast.hpp>
+#include <autotype/autotype_type_info.hpp>
 
 using namespace std;
 using namespace celstd::autotype_help;

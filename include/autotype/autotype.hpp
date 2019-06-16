@@ -4,8 +4,8 @@
 #include <string>
 #include <typeinfo>
 
-#include <autotype_type_info.hpp>
-#include <bad_autotype_cast.hpp>
+#include <autotype/autotype_type_info.hpp>
+#include <autotype/bad_autotype_cast.hpp>
 
 using namespace std;
 using namespace celstd::autotype_help;
@@ -43,6 +43,6 @@ namespace celstd {
     };
 }
 
-#include "impl/autotype_impl.hpp"
+#include "autotype/impl/autotype_impl.hpp"
 
 #endif //AUTOTYPE_AUTOTYPE_H

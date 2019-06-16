@@ -1,8 +1,8 @@
 
 
 #include <gtest/gtest.h>
-#include <autotype.hpp>
-#include <bad_autotype_cast.hpp>
+#include <autotype/autotype.hpp>
+#include <autotype/bad_autotype_cast.hpp>
 
 using namespace std;
 using namespace celstd;

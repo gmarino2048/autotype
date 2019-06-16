@@ -3,7 +3,7 @@
 #include <sstream>
 #include <typeinfo>
 
-#include <autotype.hpp>
+#include <autotype/autotype.hpp>
 
 using namespace std;
 using namespace celstd;

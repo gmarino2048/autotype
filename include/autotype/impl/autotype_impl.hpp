@@ -5,7 +5,7 @@
 #ifndef AUTOTYPE_AUTOTYPE_IMPL_HPP
 #define AUTOTYPE_AUTOTYPE_IMPL_HPP
 
-#include <autotype.hpp>
+#include <autotype/autotype.hpp>
 
 using namespace std;
 using namespace celstd;

@@ -7,7 +7,7 @@
 
 #include <string>
 
-#include <autotype_type_info.hpp>
+#include <autotype/autotype_type_info.hpp>
 
 using namespace std;
 

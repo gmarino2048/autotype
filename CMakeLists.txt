@@ -25,6 +25,5 @@ add_subdirectory(test)
 
 install(
     DIRECTORY include/
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/autotype
-    PATTERN "impl" EXCLUDE
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
