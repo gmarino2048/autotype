@@ -12,7 +12,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 include_directories(
     include
-    ${CMAKE_INSTALL_INCLUDEDIR}
+    ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR}
 )
 
 link_directories(
